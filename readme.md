@@ -64,3 +64,49 @@ with python code,
   ```bash
   python app.py #instead of flask run
   ```
+
+# Changing the directory structure
+```diff
+    ├── todolist-flask
+-       ├── templates
+-       ├── static
+-       ├── app.py
++       ├── app
++       │   ├── __init__.py
++       │   ├── templates
++       │   ├── static
++       │   ├── models.py
++       │   └── views.py
++       ├── config.py
++       ├── run.py
+        ├── readme.md
+        └── .gitignore
+```
+
+# Database Setup
+
+- install `sqlalchemy` and `mysql-python`
+
+```bash
+pip install flask-sqlalchemy mysql-python
+```
+
+(`flask-sqlalchemy` is a wrapper library on `sqlalchemy` which is specially made for `flask`)
+
+- Create new mysql db.
+  -  can use phpmyadmin, adminer, sequelpro etc.
+  <center>OR</center>
+
+  ```
+    $ mysql -u root
+
+    mysql> CREATE USER 'johndoe'@'localhost' IDENTIFIED BY 'doejohn';
+    Query OK, 0 rows affected (0.00 sec)
+
+    mysql> CREATE DATABASE todolist-api;
+    Query OK, 1 row affected (0.00 sec)
+
+    mysql> GRANT ALL PRIVILEGES ON todolist-api . * TO 'johndoe'@'localhost';
+    Query OK, 0 rows affected (0.00 sec)
+  ```
+  `!! use your db username and password wherever necessary`
