@@ -1,5 +1,5 @@
 # importing Flask class form flask package
-from flask import Flask, render_template
+from flask import Flask, render_template, request
 
 # create an instance of flask
 app = Flask(__name__)
@@ -59,9 +59,36 @@ todos = [
 
 
 @app.route('/api/todos')
-def postsIndex():
+def todosIndex():
     return {
         "todos": todos
+    }
+
+
+# handling urlParams
+@app.route('/api/todos/<todo>')
+def todosShow(todo):
+    return {
+        "todo":  todo
+    }
+
+
+# handling queryParams
+@app.route('/api/search')
+def search():
+    params = request.args
+    return {
+        "todos": todos,
+        "params": params
+    }
+
+
+# handling bodyParams
+@app.route('/api/todos', methods=['POST'])
+def todosCreate():
+    bodyParams = request.form
+    return {
+        "body_params": bodyParams
     }
 
 
