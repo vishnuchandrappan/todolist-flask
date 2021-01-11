@@ -1,0 +1,28 @@
+nav {
+  background-color: crimson;
+}
+
+nav .links {
+  width: 100vw;
+  min-height: 100px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  max-width: 60%;
+  margin: auto;
+  color: white;
+}
+
+.links a {
+  color: inherit;
+  text-decoration: none;
+  font-size: 2.3rem;
+  display: inline-block;
+  transition: 0.3s all;
+}
+
+.links a:hover {
+  color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-5px);
+  border-bottom: solid 4px;
+}
