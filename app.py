@@ -14,7 +14,10 @@ TWe can use various inbuilt decorators as well as create custom ones
 @app.route('/')
 @app.route('/home')
 def helloWorld():
-    return render_template('index.html')
+    userName = 'chandler'
+    isLoggedIn = True
+    friends = ['joey', 'phoebe', 'ross', 'monica', 'rachel']
+    return render_template('index.html', name=userName, isLoggedIn=isLoggedIn, friends=friends)
 
 
 @app.route('/about')

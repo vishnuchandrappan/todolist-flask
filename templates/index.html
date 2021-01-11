@@ -1,5 +1,21 @@
 {% extends "layout.html" %}
 
 {% block content %}
+    {% if isLoggedIn %}
+    <h1>Welcome, {{name}}</h1>
+    {% else %}
     <h1>Hello World !</h1>
+    {% endif %}
+
+    <hr>
+    <h3>Friends</h3>
+
+    {% if friends %}
+    <ol>
+        {% for friend in friends %}
+        <li>{{friend}}</li>
+        {% endfor %}
+    </ol>
+    {% endif %}
+
 {% endblock %}
