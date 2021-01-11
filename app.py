@@ -30,6 +30,41 @@ def contact():
     return render_template('contact.html')
 
 
+# API Routes
+
+@app.route('/api')
+def apiHome():
+    return {
+        "message": "Hello World"
+    }
+
+
+todos = [
+    {
+        "id": 1,
+        "text": "Learn python",
+        "isCompleted": True,
+    },
+    {
+        "id": 2,
+        "text": "Learn Flask",
+        "isCompleted": False,
+    },
+    {
+        "id": 3,
+        "text": "Learn ML",
+        "isCompleted": False,
+    },
+]
+
+
+@app.route('/api/todos')
+def postsIndex():
+    return {
+        "todos": todos
+    }
+
+
 if __name__ == '__main__':
     # for debug mode
     app.run(debug=True)
